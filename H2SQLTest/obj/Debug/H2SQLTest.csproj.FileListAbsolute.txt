@@ -5,3 +5,10 @@ C:\Users\Tec\Desktop\OPG\1\H2SQLTest\H2SQLTest\obj\Debug\H2SQLTest.csprojResolve
 C:\Users\Tec\Desktop\OPG\1\H2SQLTest\H2SQLTest\obj\Debug\H2SQLTest.csproj.CoreCompileInputs.cache
 C:\Users\Tec\Desktop\OPG\1\H2SQLTest\H2SQLTest\obj\Debug\H2SQLTest.exe
 C:\Users\Tec\Desktop\OPG\1\H2SQLTest\H2SQLTest\obj\Debug\H2SQLTest.pdb
+C:\Users\Tec\source\repos\BankDBMuthafucka\H2-OOP-case\H2SQLTest\obj\Debug\H2SQLTest.csprojResolveAssemblyReference.cache
+C:\Users\Tec\source\repos\BankDBMuthafucka\H2-OOP-case\H2SQLTest\obj\Debug\H2SQLTest.csproj.CoreCompileInputs.cache
+C:\Users\Tec\source\repos\BankDBMuthafucka\H2-OOP-case\H2SQLTest\obj\Debug\H2SQLTest.exe
+C:\Users\Tec\source\repos\BankDBMuthafucka\H2-OOP-case\H2SQLTest\obj\Debug\H2SQLTest.pdb
+C:\Users\Tec\source\repos\BankDBMuthafucka\H2-OOP-case\H2SQLTest\bin\Debug\H2SQLTest.exe.config
+C:\Users\Tec\source\repos\BankDBMuthafucka\H2-OOP-case\H2SQLTest\bin\Debug\H2SQLTest.exe
+C:\Users\Tec\source\repos\BankDBMuthafucka\H2-OOP-case\H2SQLTest\bin\Debug\H2SQLTest.pdb

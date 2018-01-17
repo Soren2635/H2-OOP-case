@@ -10,7 +10,7 @@ namespace H2SQLTest
     class Kunde
     {
         // Opret Kunde
-        static void Opret_Kunde(string Fornavn, string Efternavn, string Adresse, int FK_PostNr, string Oprettelsesdato)
+        public static void Opret_Kunde(string Fornavn, string Efternavn, string Adresse, int FK_PostNr, string Oprettelsesdato)
         {
             var connection = new SqlConnection("Trusted_Connection = true; Server = localhost; Database = BankDB; Connection Timeout = 30");
             SqlCommand cmd;
@@ -39,7 +39,7 @@ namespace H2SQLTest
         } // Opret_Kunde
 
         //Vis Kunde_Data (mangler sortering)
-        static void selectData()
+        public static void selectData()
         {
             SqlConnection connection = new SqlConnection("Trusted_Connection = true; Server = localhost; Database = BankDB; Connection Timeout = 30");
             {
@@ -62,7 +62,7 @@ namespace H2SQLTest
         } // Vis Kunde_Data
 
         // Slet_Kunde (skal ændres til aktivering / deaktivering af kunde
-        static void deleteKunde(int i)
+        public static void deleteKunde(int i)
         {
             var connection = new SqlConnection("Trusted_Connection = true; Server = localhost; Database = BankDB; Connection Timeout = 30");
             SqlCommand cmd;
@@ -86,5 +86,18 @@ namespace H2SQLTest
             }
             connection.Close();
         } // Slet_Kunde
+
+        // Vis_Konto_Data
+        public static void selectKundeKonti(int i)
+        {
+            var connection = new SqlConnection("Trusted_Connection = true; Server = localhost; Database = BankDB; Connection Timeout = 30");
+            using (SqlCommand cmd = new SqlCommand("SELECT KundeNr, Fornavn, Efternavn, KontoNr, Saldo FROM Kunde INNER JOIN Konto ON Kunde.KundeNr = Konto.FK_KundeNr WHERE KundeNr = @i", connection))
+            {
+                connection.Open();
+                cmd.Parameters.Add("@i", System.Data.SqlDbType.Int);
+                cmd.CommandText = "Select * From Table Where Title = @Title";
+                cmd.Parameters["@i"].Value = i;
+            }
+        } // Vis_Konto_Data
     }
 }

@@ -38,14 +38,5 @@ namespace H2SQLTest
             }
         } // Opret_Konto
 
-        // Vis_Konto_Data
-        static void selectKundeKonti(int i)
-        {
-            var connection = new SqlConnection("Trusted_Connection = true; Server = localhost; Database = BankDB; Connection Timeout = 30");
-            using (SqlCommand cmd = new SqlCommand("SELECT KundeNr, Fornavn, Efternavn, KontoNr, Saldo FROM Kunde INNER JOIN Konto ON Kunde.KundeNr = Konto.FK_KundeNr WHERE KundeNr = @i", connection))
-            {
-                // skal kunne selecte den bestemte kundes konti!
-            }
-        } // Vis_Konto_Data
     }
 }
