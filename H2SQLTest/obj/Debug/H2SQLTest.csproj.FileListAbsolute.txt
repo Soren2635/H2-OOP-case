@@ -1,0 +1,7 @@
+C:\Users\Tec\Desktop\OPG\1\H2SQLTest\H2SQLTest\bin\Debug\H2SQLTest.exe.config
+C:\Users\Tec\Desktop\OPG\1\H2SQLTest\H2SQLTest\bin\Debug\H2SQLTest.exe
+C:\Users\Tec\Desktop\OPG\1\H2SQLTest\H2SQLTest\bin\Debug\H2SQLTest.pdb
+C:\Users\Tec\Desktop\OPG\1\H2SQLTest\H2SQLTest\obj\Debug\H2SQLTest.csprojResolveAssemblyReference.cache
+C:\Users\Tec\Desktop\OPG\1\H2SQLTest\H2SQLTest\obj\Debug\H2SQLTest.csproj.CoreCompileInputs.cache
+C:\Users\Tec\Desktop\OPG\1\H2SQLTest\H2SQLTest\obj\Debug\H2SQLTest.exe
+C:\Users\Tec\Desktop\OPG\1\H2SQLTest\H2SQLTest\obj\Debug\H2SQLTest.pdb
