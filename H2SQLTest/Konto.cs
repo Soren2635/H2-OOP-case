@@ -19,7 +19,7 @@ namespace H2SQLTest
             try
             {
                 cmd = connection.CreateCommand();
-                cmd.CommandText = "INSERT INTO Konto(FK_KundeNr, FK_KontoTypeID, Saldo, Oprettelsesdato) values('" + FK_KundeNr + "', '" + FK_KontoTypeID + "', '" + Saldo + "', '" + Oprettelsesdato + "');";
+                cmd.CommandText = "INSERT INTO Konto(FK_KundeNr, FK_KontoTypeID, Saldo, Konto_Oprettelsesdato) values('" + FK_KundeNr + "', '" + FK_KontoTypeID + "', '" + Saldo + "', '" + Oprettelsesdato + "');";
                 cmd.ExecuteNonQuery();
 
                 Console.WriteLine("Hej Kunde Nr. " + FK_KundeNr + ", vi har tilføjet Kontotypen: " + FK_KontoTypeID + ", med en saldo på " + Saldo + ". D." + Oprettelsesdato + "");
@@ -37,15 +37,5 @@ namespace H2SQLTest
                 }
             }
         } // Opret_Konto
-
-        // Vis_Konto_Data
-        static void selectKundeKonti(int i)
-        {
-            var connection = new SqlConnection("Trusted_Connection = true; Server = localhost; Database = BankDB; Connection Timeout = 30");
-            using (SqlCommand cmd = new SqlCommand("SELECT KundeNr, Fornavn, Efternavn, KontoNr, Saldo FROM Kunde INNER JOIN Konto ON Kunde.KundeNr = Konto.FK_KundeNr WHERE KundeNr = @i", connection))
-            {
-                // skal kunne selecte den bestemte kundes konti!
-            }
-        } // Vis_Konto_Data
     }
 }

@@ -10,7 +10,7 @@ namespace H2SQLTest
     class Kunde
     {
         // Opret Kunde
-        static void Opret_Kunde(string Fornavn, string Efternavn, string Adresse, int FK_PostNr, string Oprettelsesdato)
+        public static void Opret_Kunde(string Fornavn, string Efternavn, string Adresse, int FK_PostNr, string Oprettelsesdato)
         {
             var connection = new SqlConnection("Trusted_Connection = true; Server = localhost; Database = BankDB; Connection Timeout = 30");
             SqlCommand cmd;
@@ -19,7 +19,7 @@ namespace H2SQLTest
             try
             {
                 cmd = connection.CreateCommand();
-                cmd.CommandText = "INSERT INTO Kunde(Fornavn, Efternavn, Adresse, FK_PostNr, Oprettelsesdato) values('" + Fornavn + "', '" + Efternavn + "', '" + Adresse + "', '" + FK_PostNr + "', '" + Oprettelsesdato + "');";
+                cmd.CommandText = "INSERT INTO Kunde(Fornavn, Efternavn, Adresse, FK_PostNr, Kunde_Oprettelsesdato) values('" + Fornavn + "', '" + Efternavn + "', '" + Adresse + "', '" + FK_PostNr + "', '" + Oprettelsesdato + "');";
                 cmd.ExecuteNonQuery();
 
                 Console.WriteLine("Tilføjede " + Fornavn + " " + Efternavn + " " + Adresse + " " + FK_PostNr + " " + Oprettelsesdato + " til kunde-databasen.");
@@ -39,14 +39,14 @@ namespace H2SQLTest
         } // Opret_Kunde
 
         //Vis Kunde_Data (mangler sortering)
-        static void selectData()
+        public static void selectData()
         {
             SqlConnection connection = new SqlConnection("Trusted_Connection = true; Server = localhost; Database = BankDB; Connection Timeout = 30");
             {
                 connection.Open();
-                using (SqlCommand command = new SqlCommand("SELECT * FROM Kunde", connection))
+                using (SqlCommand cmd = new SqlCommand("SELECT * FROM Kunde", connection))
                 {
-                    using (SqlDataReader reader = command.ExecuteReader())
+                    using (SqlDataReader reader = cmd.ExecuteReader())
                     {
                         while (reader.Read())
                         {
@@ -62,7 +62,7 @@ namespace H2SQLTest
         } // Vis Kunde_Data
 
         // Slet_Kunde (skal ændres til aktivering / deaktivering af kunde
-        static void deleteKunde(int i)
+        public static void deleteKunde(int i)
         {
             var connection = new SqlConnection("Trusted_Connection = true; Server = localhost; Database = BankDB; Connection Timeout = 30");
             SqlCommand cmd;
@@ -86,5 +86,30 @@ namespace H2SQLTest
             }
             connection.Close();
         } // Slet_Kunde
+
+        // Vis_Konto_Data
+        public static void selectKundeKonti(int i)
+        {
+            var connection = new SqlConnection("Trusted_Connection = true; Server = localhost; Database = BankDB; Connection Timeout = 30");
+            SqlCommand cmd;
+            connection.Close();
+            cmd = new SqlCommand("SELECT Kunde.KundeNr, Kunde.Efternavn, Konto.KontoNr, Konto.Konto_Oprettelsesdato, Konto.Saldo, Kontotype.KontoType, Kontotype.Rente FROM Kunde JOIN Konto ON Kunde.KundeNr = Konto.FK_KundeNr JOIN Kontotype ON dbo.Kontotype.ID = Konto.FK_KontoTypeID WHERE KundeNr = @i", connection);
+
+            cmd.Parameters.Add("@i", System.Data.SqlDbType.Int);
+            cmd.Parameters["@i"].Value = i;
+            connection.Open();
+
+            using (SqlDataReader reader = cmd.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    for (int o = 0; o < reader.FieldCount; o++)
+                    {
+                        Console.WriteLine(reader.GetValue(o));
+                    }
+                    Console.WriteLine();
+                }
+            }
+        } // Vis_Konto_Data
     }
 }
